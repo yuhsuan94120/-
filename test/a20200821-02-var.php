@@ -22,13 +22,17 @@
     echo "\$a<br>";
     echo "\n\"<br>";
     echo '\n\" \'\\<br>
-
-
-
-123
+123<br>
 ';
+    $name = "Victor";
+    echo "Hello, $name<br>";
+    echo "Hello, {$name}456<br>";
+    echo "Hello, ${name}456<br>";
 
-
+    echo "123" + "10";
+    echo "<br>";
+    # $c = "bill";
+    echo $c ?? 'peter';
 ?>
 </body>
 </html>
