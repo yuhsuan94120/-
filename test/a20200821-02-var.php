@@ -11,11 +11,24 @@
 <?php
     $a = 123;
 
-    echo $a;
-    echo '<br>';
+    echo $a. '<br>';
+
     echo empty($b) ? 'empty' : 'not empty';
     echo '<br>';
     echo !empty($b);
+    echo '<br>';
+    echo '$a<br>';
+    echo "$a<br>";
+    echo "\$a<br>";
+    echo "\n\"<br>";
+    echo '\n\" \'\\<br>
+
+
+
+123
+';
+
+
 ?>
 </body>
 </html>
