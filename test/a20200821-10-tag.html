@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<a href="https://tw.yahoo.com" onclick="func(event)">aaa</a>
+<br>
+<a href="javascript: func2(12)">bbb</a>
+
+<script>
+function func(e){
+    if(! confirm('真的要連過去嗎?')){
+        e.preventDefault();
+    }
+}
+function func2(e){
+    console.log(e);
+}
+</script>
+
+</body>
+</html>
