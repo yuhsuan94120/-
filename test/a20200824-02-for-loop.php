@@ -10,10 +10,22 @@
 <body>
 <table border="1">
     <?php for($i=1; $i<=9; $i++): ?>
+        <tr>
+            <?php for($k=1; $k<=9; $k++): ?>
+                <td><?php printf("%s * %s = %s", $i, $k, $i*$k) ?></td>
+            <?php endfor ?>
+        </tr>
+    <?php endfor ?>
+
+    <?php /*
+    <?php for($i=1; $i<=9; $i++): ?>
     <tr>
-        <td><?= $i ?></td>
+        <?php for($k=1; $k<=9; $k++): ?>
+        <td><?php printf("%s * %s = %s", $i, $k, $i*$k) ?></td>
+        <?php endfor ?>
     </tr>
     <?php endfor ?>
+ */ ?>
 </table>
 
 </body>
