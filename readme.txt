@@ -7,3 +7,5 @@ sudo cp ./composer.phar /usr/local/bin/composer
 cd /usr/local/bin
 
 sudo chmod +x ./composer
+
+cd ~
