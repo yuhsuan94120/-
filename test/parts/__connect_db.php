@@ -15,5 +15,7 @@ $pdo_options = [
 
 $pdo = new PDO($dsn, $db_user, $db_pass, $pdo_options);
 
+# $pdo->query("use mytest;"); // 萬一出現 no databases selected 的錯誤
+
 
 
