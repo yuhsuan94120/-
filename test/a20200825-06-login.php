@@ -1,4 +1,5 @@
 <?php
+// header('Content-Type: text/plain'); // 純文字
 session_start();
 
 $accounts = [
