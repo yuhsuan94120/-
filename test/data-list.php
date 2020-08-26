@@ -1,5 +1,6 @@
 <?php
 $page_title = '資料列表';
+$page_name = 'data-list';
 require __DIR__. '/parts/__connect_db.php';
 
 $perPage = 5; // 每頁有幾筆資料
