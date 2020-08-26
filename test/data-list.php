@@ -2,16 +2,24 @@
 $page_title = '資料列表';
 require __DIR__. '/parts/__connect_db.php';
 
+$perPage = 5; // 每頁有幾筆資料
+
+$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+
 $t_sql = "SELECT COUNT(1) FROM `address_book`";
-echo $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
-die('~~~'); //exit; // 結束程式
+$totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
+// die('~~~'); //exit; // 結束程式
+$totalPages = ceil($totalRows/$perPage);
 
+$rows = [];
+if($totalRows > 0){
+    if($page < 1) $page=1;
+    if($page > $totalPages) $page = $totalPages;
 
-
-
-$stmt = $pdo->query("SELECT * FROM `address_book` LIMIT 5");
-
-$rows = $stmt->fetchAll();
+    $sql = sprintf("SELECT * FROM `address_book` LIMIT %s, %s", ($page-1)*$perPage, $perPage);
+    $stmt = $pdo->query($sql);
+    $rows = $stmt->fetchAll();
+}
 
 
 ?>
