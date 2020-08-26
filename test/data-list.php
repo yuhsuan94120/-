@@ -2,7 +2,7 @@
 $page_title = '資料列表';
 require __DIR__. '/parts/__connect_db.php';
 
-$perPage = 1; // 每頁有幾筆資料
+$perPage = 5; // 每頁有幾筆資料
 
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 
@@ -22,18 +22,18 @@ if($totalRows > 0){
         exit;
     };
 
-    $sql = sprintf("SELECT * FROM `address_book` LIMIT %s, %s", ($page-1)*$perPage, $perPage);
+    $sql = sprintf("SELECT * FROM `address_book` ORDER BY sid DESC LIMIT %s, %s", ($page-1)*$perPage, $perPage);
     $stmt = $pdo->query($sql);
     $rows = $stmt->fetchAll();
 }
-
-
+# 正規表示式
+// https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Regular_Expressions
 ?>
 <?php require __DIR__. '/parts/__html_head.php'; ?>
 <?php include __DIR__. '/parts/__navbar.php'; ?>
 <div class="container">
     <div class="row">
-        <div class="col">
+        <div class="col d-flex justify-content-end">
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
                     <li class="page-item <?= $page==1 ? 'disabled' : '' ?>">
