@@ -2,7 +2,7 @@
 $page_title = '資料列表';
 require __DIR__. '/parts/__connect_db.php';
 
-$perPage = 5; // 每頁有幾筆資料
+$perPage = 1; // 每頁有幾筆資料
 
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 
@@ -41,7 +41,10 @@ if($totalRows > 0){
                             <i class="fas fa-arrow-circle-left"></i>
                         </a>
                     </li>
-                    <?php for($i=1; $i<=$totalPages; $i++): ?>
+                    <?php for($i=$page-3; $i<=$page+3; $i++):
+                        if($i<1) continue;
+                        if($i>$totalPages) break;
+                        ?>
                     <li class="page-item <?= $i==$page ? 'active' : '' ?>">
                         <a class="page-link" href="?page=<?= $i ?>"><?= $i ?></a>
                     </li>
