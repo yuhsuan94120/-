@@ -13,8 +13,14 @@ $totalPages = ceil($totalRows/$perPage);
 
 $rows = [];
 if($totalRows > 0){
-    if($page < 1) $page=1;
-    if($page > $totalPages) $page = $totalPages;
+    if($page < 1){
+        header('Location: data-list.php');
+        exit;
+    }
+    if($page > $totalPages){
+        header('Location: data-list.php?page='. $totalPages);
+        exit;
+    };
 
     $sql = sprintf("SELECT * FROM `address_book` LIMIT %s, %s", ($page-1)*$perPage, $perPage);
     $stmt = $pdo->query($sql);
@@ -26,6 +32,24 @@ if($totalRows > 0){
 <?php require __DIR__. '/parts/__html_head.php'; ?>
 <?php include __DIR__. '/parts/__navbar.php'; ?>
 <div class="container">
+    <div class="row">
+        <div class="col">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <?php for($i=1; $i<=$totalPages; $i++): ?>
+                    <li class="page-item">
+                        <a class="page-link" href="?page=<?= $i ?>"><?= $i ?></a>
+                    </li>
+                    <?php endfor; ?>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+
+
     <table class="table table-striped">
         <!-- `sid`, `name`, `email`, `mobile`, `birthday`, `address`, `created_at` -->
         <thead>
