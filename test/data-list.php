@@ -2,6 +2,13 @@
 $page_title = '資料列表';
 require __DIR__. '/parts/__connect_db.php';
 
+$t_sql = "SELECT COUNT(1) FROM `address_book`";
+echo $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
+die('~~~'); //exit; // 結束程式
+
+
+
+
 $stmt = $pdo->query("SELECT * FROM `address_book` LIMIT 5");
 
 $rows = $stmt->fetchAll();
