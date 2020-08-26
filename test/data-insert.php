@@ -13,7 +13,7 @@ require __DIR__. '/parts/__connect_db.php';
                 <div class="card-body">
                     <h5 class="card-title">新增資料</h5>
 
-                    <form method="post">
+                    <form name="form1" onsubmit="return checkForm()">
                         <div class="form-group">
                             <label for="name">name</label>
                             <input type="text" class="form-control" id="name" name="name">
@@ -50,4 +50,20 @@ require __DIR__. '/parts/__connect_db.php';
 
 </div>
 <?php include __DIR__. '/parts/__scripts.php'; ?>
+<script>
+    function checkForm(){
+        const fd = new FormData(document.form1);
+
+        fetch('data-insert-api.php', {
+            method: 'POST',
+            body: fd
+        })
+        .then(r=>r.text())
+        .then(str=>{
+            console.log(str);
+        });
+
+        return false;
+    }
+</script>
 <?php include __DIR__. '/parts/__html_foot.php'; ?>
