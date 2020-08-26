@@ -54,6 +54,16 @@ $rows = $stmt->fetchAll();
 
     table.addEventListener('click', (event)=>{
         const t = event.target;
+        console.log(t.classList.contains('my-trash-i'));
+
+        if(t.classList.contains('my-trash-i')){
+            t.closest('tr').remove();
+        }
+    })
+
+    /*
+    table.addEventListener('click', (event)=>{
+        const t = event.target;
         //console.log(t.classList);
 
         const ar = [...t.classList];
@@ -67,7 +77,7 @@ $rows = $stmt->fetchAll();
         }
 
     })
-
+*/
 
 </script>
 <?php include __DIR__. '/parts/__html_foot.php'; ?>
