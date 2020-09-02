@@ -1,9 +1,9 @@
 <?php
 
-$db_host = "192.168.27.82";
+$db_host = "192.168.27.102";
 $db_name = "mytest";
-$db_user = "shinder";
-$db_pass = "admin";
+$db_user = "user";
+$db_pass = "456123";
 
 $dsn = "mysql:host={$db_host};dbname={$db_name}";
 
@@ -17,5 +17,8 @@ $pdo = new PDO($dsn, $db_user, $db_pass, $pdo_options);
 
 # $pdo->query("use mytest;"); // 萬一出現 no databases selected 的錯誤
 
-define('WEB_ROOT', '/mfee09-proj');
+define('WEB_ROOT','/../yuhsuan/');
 
+if(!isset($_SESSION)){
+    session_start();
+}
