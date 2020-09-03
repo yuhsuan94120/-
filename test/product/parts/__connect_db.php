@@ -1,7 +1,7 @@
 <?php
 
 $db_host = "127.0.0.1";
-$db_name = "mytest";
+$db_name = "products";
 $db_user = "root";
 $db_pass = "";
 
@@ -15,7 +15,7 @@ $pdo_options = [
 
 $pdo = new PDO($dsn, $db_user, $db_pass, $pdo_options);
 
- $pdo->query("use mytest;"); // 萬一出現 no databases selected 的錯誤
+ //$pdo->query("use products;"); // 萬一出現 no databases selected 的錯誤
 
 define('WEB_ROOT','/mfee09/mfee09');
 

@@ -7,6 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="<?= WEB_ROOT ?>/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="<?= WEB_ROOT ?>/fontawesome/css/all.css">
-    <title><?= $page_title ?? '' ?> 通訊錄</title>
+    <title><?= $page_title ?? '' ?> 商品頁</title>
 </head>
 <body>
