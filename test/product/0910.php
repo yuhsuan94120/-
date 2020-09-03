@@ -25,7 +25,7 @@ if(!empty($_POST['sid'])){
 
 $row = $pdo->query("SELECT * FROM products WHERE sid=2")->fetch();
 
-//呈現勾選
+//呈現勾選y
 $h_sids = json_decode($row['introduction'], true);
 if($h_sids===null)
     $h_sids=[]; //資料庫新增值
