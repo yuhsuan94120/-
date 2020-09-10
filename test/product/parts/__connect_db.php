@@ -17,7 +17,7 @@ $pdo = new PDO($dsn, $db_user, $db_pass, $pdo_options);
 
  //$pdo->query("use products;"); // 萬一出現 no databases selected 的錯誤
 
-define('WEB_ROOT','/mfee09/mfee09');
+define('WEB_ROOT','/mfee09/mfee09/');
 
 if(!isset($_SESSION)){
     session_start();
